@@ -1,0 +1,86 @@
+{% load staticfiles %}
+<!-- Header -->
+<div class="navigation-wrapper">
+    <div class="secondary-navigation-wrapper">
+        <div class="container">
+            <div class="navigation-contact pull-left">Call Us:  <span class="opacity-70">000-000-000-000</span></div>
+			<ul class="secondary-navigation list-unstyled pull-right">
+                <li><a href="faq.html">FAQs</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+				<li><a href="#">Copyright Policy</a></li>
+            </ul>
+        </div>
+    </div><!-- /.secondary-navigation -->
+
+    <div class="branding">
+        <div class="container">
+            <div class="navbar-brand nav" id="brand">
+                <a href="{% url 'home' %}"><img src="{% static "img/logo.jpg" %}" alt="brand"></a>
+            </div>
+            <div class="search pull-right">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                    </span>
+                </div><!-- /input-group -->
+            </div><!-- /.pull-right -->
+        </div>
+    </div>
+
+    <div class="primary-navigation-wrapper">
+        <header class="navbar" id="top" role="banner">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <nav class="collapse navbar-collapse bs-navbar-collapse navbar-left" role="navigation">
+                    <ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="{% url "home" %}">Home</a>
+                        </li>
+                        <li><a href="about-us.html" class=" has-child no-link">About Primegate Academy</a>
+							<ul class="list-unstyled child-navigation">
+                                <li><a href="thematic-area.html">Thematic Area</a></li>
+                                <li><a href="members.html">The Primegate Team</a></li>
+                            </ul>
+						</li>
+						 <li><a href="#" class=" has-child no-link">Downloads</a>
+							<ul class="list-unstyled child-navigation">
+                                <li><a href="#">Reports</a></li>
+                                <li><a href="#">Assessment</a></li>
+								<li><a href="#">Reviews</a></li>
+                                <li><a href="#">Images</a></li>
+								<li><a href="#">Video Clips</a></li>
+                                <li><a href="#">Calendar</a></li>
+                            </ul>
+						</li>
+                        <li>
+                            <a href="event-listing-images.html">Events</a>
+                        </li>
+                        <li>
+                            <a href="blog-listing.html">Blog</a>
+                        </li>
+                        <li>
+                            <a href="contact-us.html">Contact Us</a>
+                        </li>
+                    </ul>
+                </nav><!-- /.navbar collapse-->
+                <div class="social">
+                    <div class="icons">
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                    </div><!-- /.icons -->
+                </div>
+            </div><!-- /.container -->
+        </header><!-- /.navbar -->
+    </div><!-- /.primary-navigation -->
+</div>
+<!-- end Header -->

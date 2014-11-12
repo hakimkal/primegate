@@ -1,0 +1,206 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div id="page-content">
+<!-- Slider -->
+{% include 'publicpages/homeslides/slider.html' %}
+<!-- end Slider -->
+
+{% load staticfiles%}
+<!-- News, Events, About -->
+<div class="block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <section class="news-small" id="news-small">
+                    <header>
+                        <h2>News</h2>
+                    </header>
+                    <div class="section-content">
+                        <article>
+                            <figure class="date"><i class="fa fa-file-o"></i>08-24-2014</figure>
+                            <header><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a></header>
+                        </article><!-- /article -->
+                        <article>
+                            <figure class="date"><i class="fa fa-file-o"></i>08-24-2014</figure>
+                            <header><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </a></header>
+                        </article><!-- /article -->
+                        <article>
+                            <figure class="date"><i class="fa fa-file-o"></i>08-24-2014</figure>
+                            <header><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </a></header>
+                        </article><!-- /article -->
+                    </div><!-- /.section-content -->
+                    <a href="#" class="read-more stick-to-bottom">All News</a>
+                </section><!-- /.news-small -->
+            </div><!-- /.col-md-4 -->
+            <div class="col-md-4 col-sm-6">
+                <section class="events small" id="events-small">
+                    <header>
+                        <h2>Events</h2>
+                        <a href="#" class="link-calendar">Calendar</a>
+                    </header>
+                    <div class="section-content">
+                        <article class="event nearest">
+                            <figure class="date">
+                                <div class="month">jan</div>
+                                <div class="day">18</div>
+                            </figure>
+                            <aside>
+                                <header>
+                                    <a href="event-detail.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+                                </header>
+                                <div class="additional-info">Lorem Ipsum</div>
+                            </aside>
+                        </article><!-- /article -->
+                        <article class="event nearest-second">
+                            <figure class="date">
+                                <div class="month">feb</div>
+                                <div class="day">01</div>
+                            </figure>
+                            <aside>
+                                <header>
+                                    <a href="event-detail.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </a>
+                                </header>
+                                <div class="additional-info clearfix" >Lorem Ipsum</div>
+                            </aside>
+                        </article><!-- /article -->
+                        <article class="event">
+                            <figure class="date">
+                                <div class="month">mar</div>
+                                <div class="day">23</div>
+                            </figure>
+                            <aside>
+                                <header>
+                                    <a href="event-detail.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+                                </header>
+                                <div class="additional-info">Lorem Ipsum</div>
+                            </aside>
+                        </article><!-- /article -->
+                    </div><!-- /.section-content -->
+                </section><!-- /.events-small -->
+            </div><!-- /.col-md-4 -->
+            <div class="col-md-4 col-sm-12">
+                <section id="about">
+                    <header>
+                        <h2>About Primegate Academy</h2>
+                    </header>
+                    <div class="section-content">
+                        <img src="{% static "img/students.jpg" %}" alt="" class="add-margin">
+                        <p><strong>Welcome to Primegate International Academy,</strong>
+                            
+                         A 21<sup>ST</sup> Century School tailored to prepare children for the future.
+Our world has changed and still is changing. Education is the necessary tool to help structure our children towards a great future.
+Here at Primegate , detailed attention is given to giving quality education. Primegate International Academy is an enchanted environment for children.
+The  environment is built and furnished bearing  children  in mind because we place utmost importance on them.<br/><br/>
+                        </p>
+                        <a href="#" class="read-more stick-to-bottom">Read More</a>
+                    </div><!-- /.section-content -->
+                </section><!-- /.about -->
+            </div><!-- /.col-md-4 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div>
+<!-- end News, Events, About -->
+
+<!-- Testimonial -->
+<section id="testimonials">
+    <div class="block">
+        <div class="container">
+            <div class="author-carousel">
+                <div class="author">
+                    <blockquote>
+                        <figure class="author-picture"><img src="img/student-testimonial.jpg" alt=""></figure>
+                        <article class="paragraph-wrapper">
+                            <div class="inner">
+                                <header>Morbi nec nisi ante. Quisque lacus ligula, iaculis in elit et, interdum semper quam. Fusce in interdum tortor.
+                                    sollicitudin lectus dolor eget imperdiet libero pulvinar sit amet.</header>
+                                <footer>Claire Doe</footer>
+                            </div>
+                        </article>
+                    </blockquote>
+                </div><!-- /.author -->
+                <div class="author">
+                    <blockquote>
+                        <figure class="author-picture"><img src="img/student-testimonial.jpg" alt=""></figure>
+                        <article class="paragraph-wrapper">
+                            <div class="inner">
+                                <header>Morbi nec nisi ante. Quisque lacus ligula, iaculis in elit et, interdum semper quam. Fusce in interdum tortor.
+                                    Ut sollicitudin lectus dolor eget imperdiet libero pulvinar sit amet.</header>
+                                <footer>Claire Doe</footer>
+                            </div>
+                        </article>
+                    </blockquote>
+                </div><!-- /.author -->
+            </div><!-- /.author-carousel -->
+        </div><!-- /.container -->
+    </div><!-- /.block -->
+</section>
+<!-- end Testimonial -->
+
+<!-- Academic Life, Campus Life, Newsletter -->
+<div class="block">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <section id="academic-life">
+                    <header>
+                        <h2>The Primegate Vision</h2>
+                    </header>
+                    <div class="section-content">
+                        <ul class="list-links">
+                            <li><a href="#">Programs and Areas</a></li>
+                            <li><a href="#">Research</a></li>
+                            <li><a href="#">Graduate & Postdoctoral Programs</a></li>
+                            <li><a href="#">Continuing Studies</a></li>
+                            <li><a href="#">International Activities</a></li>
+                            <li><a href="#">Course Calendars & Listings</a></li>
+                        </ul>
+                    </div><!-- /.section-content -->
+                </section><!-- /.academic-life -->
+            </div><!-- /.col-md-4 -->
+
+            <div class="col-md-4 col-sm-4">
+                <section id="campus-life">
+                    <header>
+                        <h2>The Primegate Vision</h2>
+                    </header>
+                    <div class="section-content">
+                        <ul class="list-links">
+                            <li><a href="#">Athletics & Recreation</a></li>
+                            <li><a href="#">Clubs & Extra-curricular Activities</a></li>
+                            <li><a href="#">Health & Wellness</a></li>
+                            <li><a href="#">Housing & Residence</a></li>
+                            <li><a href="#">Arts & Culture</a></li>
+                            <li><a href="#">Student IT Services</a></li>
+                        </ul>
+                    </div><!-- /.section-content -->
+                </section><!-- /.campus-life -->
+            </div><!-- /.col-md-4 -->
+
+            <div class="col-md-4 col-sm-4">
+                <section id="newsletter">
+                    <header>
+                        <h2>Newsletter</h2>
+                        <div class="section-content">
+                            <div class="newsletter">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Your e-mail">
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn"><i class="fa fa-angle-right"></i></button>
+                                    </span>
+                                </div><!-- /input-group -->
+                            </div><!-- /.newsletter -->
+                            <p class="opacity-50">Us tincidunt, quam in tincidunt vestibulum, turpis ipsum porttitor nisi, et fermentum augue
+                                lit eu neque. In at tempor dolor, sit amet dictum lacus. Praesent porta orci eget laoreet ultrices.
+                            </p>
+                        </div><!-- /.section-content -->
+                    </header>
+                </section><!-- /.newsletter -->
+            </div><!-- /.col-md-4 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div>
+<!-- end Academic Life, Campus Life, Newsletter -->
+</div>
+{% endblock %}
