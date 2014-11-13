@@ -4,4 +4,5 @@ include/*
 .komodo*
 lib/*
 Primegate.ko*
-static
+./static
+settings.py
