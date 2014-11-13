@@ -5,4 +5,5 @@ include/*
 lib/*
 Primegate.ko*
 ./static
-settings.py
+primegate/settings.py
+primegate/settings.pyc
