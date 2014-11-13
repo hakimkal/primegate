@@ -3,7 +3,7 @@
 <div class="navigation-wrapper">
     <div class="secondary-navigation-wrapper">
         <div class="container">
-            <div class="navigation-contact pull-left">Call Us:  <span class="opacity-70">000-000-000-000</span></div>
+            <div class="navigation-contact pull-left">Call Us:  <span class="opacity-70">080-330-814-68</span></div>
 			<ul class="secondary-navigation list-unstyled pull-right">
                 <li><a href="faq.html">FAQs</a></li>
                 <li><a href="#">Privacy Policy</a></li>
@@ -42,32 +42,32 @@
                 <nav class="collapse navbar-collapse bs-navbar-collapse navbar-left" role="navigation">
                     <ul class="nav navbar-nav">
                         <li class="active">
-                            <a href="{% url "home" %}">Home</a>
+                        <a href="{% url "home" %}">Home</a>
                         </li>
                         <li><a href="about-us.html" class=" has-child no-link">About Primegate Academy</a>
 							<ul class="list-unstyled child-navigation">
-                                <li><a href="thematic-area.html">Thematic Area</a></li>
-                                <li><a href="members.html">The Primegate Team</a></li>
+                                <li><a href="{% url "about" %}"> About </a></li>
+                                <li><a href="{% url "team" %}">The Primegate Team</a></li>
                             </ul>
 						</li>
 						 <li><a href="#" class=" has-child no-link">Downloads</a>
 							<ul class="list-unstyled child-navigation">
                                 <li><a href="#">Reports</a></li>
                                 <li><a href="#">Assessment</a></li>
-								<li><a href="#">Reviews</a></li>
+								 
                                 <li><a href="#">Images</a></li>
 								<li><a href="#">Video Clips</a></li>
                                 <li><a href="#">Calendar</a></li>
                             </ul>
 						</li>
                         <li>
-                            <a href="event-listing-images.html">Events</a>
+                            <a href="#">Events</a>
                         </li>
                         <li>
-                            <a href="blog-listing.html">Blog</a>
+                            <a href="#">Blog</a>
                         </li>
                         <li>
-                            <a href="contact-us.html">Contact Us</a>
+                            <a href="{% url "contact" %}">Contact Us</a>
                         </li>
                     </ul>
                 </nav><!-- /.navbar collapse-->

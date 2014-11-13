@@ -10,4 +10,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', publicpages.views.index, name="home"),
+    url(r'^about$', publicpages.views.about, name='about'),
+    url(r'^contact$', publicpages.views.contact, name = 'contact'),
+    url(r'^team$', publicpages.views.team, name = 'team')
 )
