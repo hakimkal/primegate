@@ -143,9 +143,9 @@ $(document).ready(function($) {
 //  Contact Form with validation
 
     $("#submit").bind("click", function(event){
-        $("#contactform").validate({
+        $("#contactform2").validate({
             submitHandler: function() {
-                $.post("contact.php", $("#contactform").serialize(),  function(response) {
+                $.post("/contact/", $("#contactform").serialize(),  function(response) {
                     $('#form-status').html(response);
                     $('#submit').attr('disabled','true');
                 });

@@ -43,6 +43,7 @@
                                 <p>
                                 We are always available within working hours to discuss all your concerns
                                 about educating your child at Primegate International Academy.
+                                Do visit or send us an email.
                                 </p>
                             </div>
                             <div class="col-md-6">
@@ -54,13 +55,16 @@
                     </section>
                     <section id="contact-form" class="clearfix">
                         <header><h2>Send Us a Message</h2></header>
-                        <form class="contact-form" id="contactform" method="post" action="#">
+                        <form class="contact-form" id="contactform" method="post" action="{% url "contact" %}">
+                            {% csrf_token %}
+                            
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="input-group">
                                         <div class="controls">
                                             <label for="name">Your Name</label>
-                                            <input type="text" name="name" id="name" required>
+                                           
+                                                {{ form.name }}
                                         </div><!-- /.controls -->
                                     </div><!-- /.control-group -->
                                 </div><!-- /.col-md-4 -->
@@ -68,7 +72,7 @@
                                     <div class="input-group">
                                         <div class="controls">
                                             <label for="email">Your Email</label>
-                                            <input type="email" name="email" id="email" required>
+                                          {{form.email}}
                                         </div><!-- /.controls -->
                                     </div><!-- /.control-group -->
                                 </div><!-- /.col-md-4 -->
@@ -77,12 +81,13 @@
                                 <div class="col-md-12">
                                     <div class="input-group">
                                         <div class="controls">
-                                            <label for="message">Your Message</label>
-                                            <textarea name="message" id="message" required></textarea>
+                                            <label for="message">{{ form.message.label }}</label>
+                                          {{form.message}}
                                         </div><!-- /.controls -->
                                     </div><!-- /.control-group -->
                                 </div><!-- /.col-md-4 -->
                             </div><!-- /.row -->
+                      
                             <div class="pull-right">
                                 <input type="submit" class="btn btn-color-primary" id="submit" value="Send a Message">
                             </div><!-- /.form-actions -->
