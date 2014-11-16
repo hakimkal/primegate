@@ -1,6 +1,7 @@
 from django.shortcuts import *
 from django.template  import RequestContext
 from publicpages.forms import *
+from nlsubscribers.forms import NlsubscriberForm
 from django.core.mail import send_mail
 import datetime
 # Create your views here.
@@ -8,7 +9,8 @@ def index(request):
     now = datetime.datetime.now()
     theyear = datetime.datetime.today().year
     cssClass = "page-sub-page page-microsite"
-    return render(request,'publicpages/index.html',{'current_date':now,'theyear': theyear,'cssClass': cssClass})
+    nlsubscriber_form = NlsubscriberForm()
+    return render(request,'publicpages/index.html',{'current_date':now,'theyear': theyear,'cssClass': cssClass,'nlform':nlsubscriber_form})
 
 def about(request):
     now = datetime.datetime.now()

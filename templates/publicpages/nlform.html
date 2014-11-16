@@ -1,0 +1,30 @@
+{% load help_text_as_placeholder %}
+
+<div class="newsletter">
+    <form action="{% url 'nladd' %}" method="post">
+                                {% csrf_token %} <div class="input-group">
+                                          {{ nlform.email|help_text_as_placeholder  }}
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn"><i
+                                        class="fa fa-angle-right"></i></button>
+                                    </span>
+                                </div><!-- /input-group -->
+    </form>
+</div><!-- /.newsletter -->
+                            <p class="opacity-50">Subscribe to our monthly
+                            newsletters. {% if messages %}
+                            <ul
+                            class="messages">
+    {% for message in messages %}
+    {% if message.tags == 'error' %}
+     <div class="alert alert-danger">{{ message }}
+     {% else %}    
+    <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}
+    {% endif %}
+    </div>
+    {% endfor %}
+</ul>
+                            
+                            
+                             {% endif %}
+                                         </p>

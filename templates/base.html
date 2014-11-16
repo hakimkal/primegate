@@ -7,9 +7,12 @@
     <meta name="author" content="Le Proghrammeen Solutions">
     {% load staticfiles %}
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    {% if debug  %}
     
+    <link rel="stylesheet" href="{% static "css/font-awesome.css" %}" type="text/css">
+    {% else %}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css">
-
+    {% endif %}
     <link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.css" %}" type="text/css">
     <link rel="stylesheet" href="{% static "css/selectize.css" %}" type="text/css">
     <link rel="stylesheet" href="{% static "css/owl.carousel.css" %}" type="text/css">

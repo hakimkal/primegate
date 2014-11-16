@@ -51,7 +51,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'publicpages', 'corsheaders',
+    'publicpages',
+    'south',
+    'nlsubscribers'
+    #'corsheaders',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -129,7 +132,7 @@ EMAIL_HOST_USER =  EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
 EMAIL_USE_TLS = True
 #EMAIL_USE_SSL
-
+INTERNAL_IPS =  ('127.0.0.1',)
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
@@ -139,6 +142,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     
     "django.core.context_processors.request",
     'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.debug',
 )
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_PATH, "templates"),
