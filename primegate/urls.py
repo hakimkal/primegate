@@ -3,6 +3,8 @@ import publicpages.views
 import nlsubscribers.views
 import news.views
 import events.views
+import faqs.views
+import team.views
 from django.contrib import admin
 admin.autodiscover()
 
@@ -19,5 +21,7 @@ urlpatterns = patterns('',
     url(r'^nladd',nlsubscribers.views.nladd, name = "nladd"),
     url(r'^news/$',news.views.index,name='news'),
     url(r'^events/$',events.views.index, name="events"),
+    url(r'^teams/$',team.views.index, name="theteam"),
+    url(r'faq/$',faqs.views.index, name="faqs"),
     url(r'^admin/', include(admin.site.urls)),
 )

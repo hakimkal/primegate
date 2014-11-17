@@ -1,0 +1,26 @@
+   {% for e in events %}
+                        <article class="event nearest-second">
+                            <figure class="date">
+                                <div class="month">{{ e.start_date|date:"M" }}</div>
+                                <div class="day">
+                                
+                                {{ e.start_date|date:"d" }}
+                                </div>
+                            </figure>
+                            <aside>
+                                <header>
+                                    <a href="#">{{e.caption}}  </a>       
+                                       
+                                </header>
+                                <div class="additional-info">
+                                   {%  if e.synopsis %}
+                                    {{ e.synopsis}}
+                                {% else %}
+                                    &nbsp;
+                                {% endif %}
+                                </div>
+                            </aside>
+                            
+                        </article><!-- /article -->
+                        
+                    {% endfor %}

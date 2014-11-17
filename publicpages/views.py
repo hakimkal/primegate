@@ -3,9 +3,10 @@ from django.template  import RequestContext
 from publicpages.forms import *
 from events.models import Event
 from news.models import News
+from team.models import Team
 from nlsubscribers.forms import NlsubscriberForm
 from django.core.mail import send_mail
-
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 import datetime
 # Create your views here.
 def index(request):
@@ -25,6 +26,8 @@ def about(request):
     return render(request, 'publicpages/about.html',{'current_date':now, 'theyear': theyear,'cssClass': cssClass})
 
 def contact(request):
+    nlsubscriber_form = NlsubscriberForm()
+    news = News.objects.order_by('-created')[:5]
     now = datetime.datetime.now()
     cssClass = "page-sub-page page-contact page-microsite"
     theyear= datetime.datetime.today().year
@@ -44,12 +47,23 @@ def contact(request):
             return render_to_response('publicpages/contact.html',{'form':form, 'current_date':now, 'theyear': theyear,'success' :  txt,'cssClass': cssClass}, context_instance = RequestContext(request))
     else:
         
-        return render_to_response('publicpages/contact.html',{'current_date':now,
+        return render_to_response('publicpages/contact.html',{'nlform':nlsubscriber_form,'news':news,'current_date':now,
                                                               'theyear': theyear,'form':FeedbackForm(),'cssClass': cssClass},context_instance = RequestContext(request))
 
 
 def team(request):
+    nlsubscriber_form = NlsubscriberForm()
+    team_list = Team.objects.all()
+    paginator = Paginator(team_list,5)
+    news = News.objects.order_by('-created')[:5]
     cssClass ="page-sub-page page-members page-microsite"
     now = datetime.datetime.now()
     theyear= datetime.datetime.today().year
-    return render(request, 'publicpages/team.html',{'current_date':now, 'theyear': theyear,'cssClass':cssClass})
+    page = request.GET.get('page')
+    try:
+        team = paginator.page(page)
+    except PageNotAnInteger:
+        team = paginator.page(1)
+    except EmptyPage:
+        team = paginator.page(paginator.num_pages)
+    return render(request, 'publicpages/team.html',{'team':team,'nlform':nlsubscriber_form,'news':news,'current_date':now, 'theyear': theyear,'cssClass':cssClass})

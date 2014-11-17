@@ -1,0 +1,10 @@
+{% for n in news %}
+
+<article>
+<figure class="date"><i class="fa fa-file-o"></i>
+      {{ n.created|date:"d- m- Y" }}
+</figure>
+<header><a href="#">{{ n.caption}}</a></header>
+</article><!-- /article -->
+                            
+                            {% endfor %}

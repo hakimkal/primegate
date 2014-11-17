@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<!-- Breadcrumb -->
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="{% url "home" %}">Home</a></li>
+        <li class="active">FAQs</li>
+    </ol>
+</div>
+<!-- end Breadcrumb -->
+
+<!-- Page Content -->
+<div id="page-content">
+    <div class="container">
+        <div class="row">
+            <!--MAIN Content-->
+            <div class="col-md-8">
+                <div id="page-main">
+                    <section id="members">
+                        <header><h1>Frequently Asked Questions</h1></header>
+							<div class="panel-group" id="accordion">
+                                {% for f in faqs %}
+								<div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#accordion" href="#question-1">
+                                                <span class="question">{{ f.question }}?</span>
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="question-1" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                           {{f.answer }}                                    </div>
+									</div>
+									
+								{% endfor %}
+                                
+								 
+                                
+                            </div>
+                        
+                           </section><!-- /#our-speakers -->
+
+                    </section>
+                </div><!-- /#page-main -->
+            </div><!-- /.col-md-8 -->
+
+            <!--SIDEBAR Content-->
+            <div class="col-md-4">
+                <div id="page-sidebar" class="sidebar">
+                    <aside class="news-small" id="news-small">
+                        <header>
+                            <h2>Related News</h2>
+                        </header>
+                        <div class="section-content">
+                             {% include "news/related_news.html" %}
+                        </div><!-- /.section-content -->
+                        <a href="#" class="read-more">All News</a>
+                    </aside><!-- /.news-small -->
+                    <aside id="newsletter">
+                        <header>
+                            <h2>Newsletter</h2>
+                            <div class="section-content">
+                                {% include "publicpages/nlform.html" %}
+                            </div><!-- /.section-content -->
+                        </header>
+                    </aside><!-- /.newsletter -->
+                </div><!-- /#sidebar -->
+            </div><!-- /.col-md-4 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div>
+<!-- end Page Content -->
+
+{% endblock %}

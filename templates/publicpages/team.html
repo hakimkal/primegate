@@ -21,80 +21,26 @@
             <div class="col-md-8">
                 <div id="page-main">
                     <section id="members">
+                        {% load cropping %}
                         <header><h1>The Primegate Team</h1></header>
                         <section id="our-speakers">
+                            
+                            {% for t in team %}
                            <div class="author-block course-speaker">
-                                <a href="#"><figure class="author-picture"><img src="{% static "img/student-testimonial.jpg" %}" alt=""></figure></a>
+                                <a href="#"><figure class="author-picture"><img src="{% cropped_thumbnail t  "cropping"  scale=0.5 %}" alt="{{ t.name }}"></figure></a>
                                 <article class="paragraph-wrapper">
                                     <div class="inner">
-                                        <header><a href="member-detail.html">Lorem Ipsum</a></header>
-                                        <figure> Lorem Ipsum</figure>
+                                        <header><a href="member-detail.html">{{ t.name }}</a></header>
+                                        <figure>{{ t.designation }}</figure>
                                         <p>
-                                           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                        </p>
+                                           {{ t.biography }}           </p>
                                     </div>
                                 </article>
                             </div><!-- /.author -->
-                            <div class="author-block course-speaker">
-                                <a href="member-detail.html"><figure class="author-picture"><img src="img/student-testimonial.jpg" alt=""></figure></a>
-                                <article class="paragraph-wrapper">
-                                    <div class="inner">
-                                        <header><a href="member-detail.html">Lorem Ipsum</a></header>
-                                        <figure> Lorem Ipsum</figure>
-                                        <p>
-                                           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                        </p>
-                                    </div>
-                                </article>
-                            </div><!-- /.author -->
-                             <div class="author-block course-speaker">
-                                <a href="member-detail.html"><figure class="author-picture"><img src="img/student-testimonial.jpg" alt=""></figure></a>
-                                <article class="paragraph-wrapper">
-                                    <div class="inner">
-                                        <header><a href="member-detail.html">Lorem Ipsum</a></header>
-                                        <figure> Lorem Ipsum</figure>
-                                        <p>
-                                           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                        </p>
-                                    </div>
-                                </article>
-                            </div><!-- /.author -->
-                            <div class="author-block course-speaker">
-                                <a href="member-detail.html"><figure class="author-picture"><img src="img/student-testimonial.jpg" alt=""></figure></a>
-                                <article class="paragraph-wrapper">
-                                    <div class="inner">
-                                        <header><a href="member-detail.html">Lorem Ipsum</a></header>
-                                        <figure> Lorem Ipsum</figure>
-                                        <p>
-                                           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                        </p>
-                                    </div>
-                                </article>
-                            </div><!-- /.author -->
-                            <div class="author-block course-speaker">
-                                <a href="member-detail.html"><figure class="author-picture"><img src="img/student-testimonial.jpg" alt=""></figure></a>
-                                <article class="paragraph-wrapper">
-                                    <div class="inner">
-                                        <header><a href="member-detail.html">Lorem Ipsum</a></header>
-                                        <figure> Lorem Ipsum</figure>
-                                        <p>
-                                           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                        </p>
-                                    </div>
-                                </article>
-                            </div><!-- /.author -->
-                            <div class="author-block course-speaker">
-                                <a href="member-detail.html"><figure class="author-picture"><img src="img/student-testimonial.jpg" alt=""></figure></a>
-                                <article class="paragraph-wrapper">
-                                    <div class="inner">
-                                        <header><a href="member-detail.html">Lorem Ipsum</a></header>
-                                        <figure> Lorem Ipsum</figure>
-                                        <p>
-                                           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                        </p>
-                                    </div>
-                                </article>
-                            </div><!-- /.author -->
+                            
+                        {% endfor %}
+                            
+                            
                             </section><!-- /#our-speakers -->
 
                     </section>
@@ -109,18 +55,7 @@
                             <h2>Related News</h2>
                         </header>
                         <div class="section-content">
-                            <article>
-                                <figure class="date"><i class="fa fa-file-o"></i>08-24-2014</figure>
-                                <header><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a></header>
-                            </article><!-- /article -->
-                            <article>
-                                <figure class="date"><i class="fa fa-file-o"></i>08-24-2014</figure>
-                                <header><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a></header>
-                            </article><!-- /article -->
-                            <article>
-                                <figure class="date"><i class="fa fa-file-o"></i>08-24-2014</figure>
-                                <header><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a></header>
-                            </article><!-- /article -->
+                            {% include 'news/related_news.html'%}
                         </div><!-- /.section-content -->
                         <a href="#" class="read-more">All News</a>
                     </aside><!-- /.news-small -->
@@ -128,22 +63,25 @@
                         <header>
                             <h2>Newsletter</h2>
                             <div class="section-content">
-                                <div class="newsletter">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Your e-mail">
-                                    <span class="input-group-btn">
-                                        <button type="submit" class="btn"><i class="fa fa-angle-right"></i></button>
-                                    </span>
-                                    </div><!-- /input-group -->
-                                </div><!-- /.newsletter -->
-                                <p class="opacity-50">Ut tincidunt, quam in tincidunt vestibulum, turpis ipsum porttitor nisi, et fermentum augue
-                                    lit eu neque. In at tempor dolor, sit amet dictum lacus. Praesent porta orci eget laoreet ultrices.
-                                </p>
+                                 {% include 'publicpages/nlform.html'%}
                             </div><!-- /.section-content -->
                         </header>
                     </aside><!-- /.newsletter -->
                 </div><!-- /#sidebar -->
             </div><!-- /.col-md-4 -->
+            
+            
+            <div class="center">
+                        <ul class="pagination">
+                            {% if team.has_previous %}
+                            <li class="active"><a href="?page={{team.previous_page_number}}">Prev</a></li>
+                        {% endif %}
+                            <li><a href="#">{{ team.number}} / {{team.paginator.num_pages}}</a></li>
+                           {% if team.has_next %}
+                            <li class="active"><a href="?page={{team.next_page_number}}">Next</a></li>
+                        {% endif %}
+                        </ul>
+                    </div>
         </div><!-- /.row -->
     </div><!-- /.container -->
 </div>
