@@ -53,7 +53,9 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'publicpages',
     'south',
-    'nlsubscribers'
+    'nlsubscribers',
+    'news',
+    'events',
     #'corsheaders',
 )
 
@@ -148,3 +150,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_PATH, "templates"),
 )
+#Grappelli Customization
+
+GRAPPELLI_ADMIN_TITLE = "Primegate Academy CMS"

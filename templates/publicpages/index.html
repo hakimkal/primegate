@@ -18,18 +18,14 @@
                         <h2>News</h2>
                     </header>
                     <div class="section-content">
+                        {% for n in news %}
+                            
+                       
                         <article>
-                            <figure class="date"><i class="fa fa-file-o"></i>08-24-2014</figure>
-                            <header><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a></header>
+                            <figure class="date"><i class="fa fa-file-o"></i>{{n.created}}</figure>
+                            <header><a href="#">{{n.caption}}</a></header>
                         </article><!-- /article -->
-                        <article>
-                            <figure class="date"><i class="fa fa-file-o"></i>08-24-2014</figure>
-                            <header><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </a></header>
-                        </article><!-- /article -->
-                        <article>
-                            <figure class="date"><i class="fa fa-file-o"></i>08-24-2014</figure>
-                            <header><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </a></header>
-                        </article><!-- /article -->
+                         {% endfor %}
                     </div><!-- /.section-content -->
                     <a href="#" class="read-more stick-to-bottom">All News</a>
                 </section><!-- /.news-small -->
@@ -41,19 +37,33 @@
                         <a href="#" class="link-calendar">Calendar</a>
                     </header>
                     <div class="section-content">
-                        <article class="event nearest">
+                        {% for e in events %}
+                        <article class="event nearest-second">
                             <figure class="date">
-                                <div class="month">jan</div>
-                                <div class="day">18</div>
+                                <div class="month">{{ e.start_date|date:"M" }}</div>
+                                <div class="day">
+                                
+                                {{ e.start_date|date:"d" }}
+                                </div>
                             </figure>
                             <aside>
                                 <header>
-                                    <a href="event-detail.html">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+                                    <a href="#">{{e.caption}}  </a>       
+                                       
                                 </header>
-                                <div class="additional-info">Lorem Ipsum</div>
+                                <div class="additional-info">
+                                   {%  if e.synopsis %}
+                                    {{ e.synopsis}}
+                                {% else %}
+                                    &nbsp;
+                                {% endif %}
+                                </div>
                             </aside>
+                            
                         </article><!-- /article -->
-                        <article class="event nearest-second">
+                        
+                    {% endfor %}
+                       <!-- <article class="event nearest-second">
                             <figure class="date">
                                 <div class="month">feb</div>
                                 <div class="day">01</div>
@@ -65,7 +75,7 @@
                                 <div class="additional-info clearfix" >Lorem Ipsum</div>
                             </aside>
                         </article><!-- /article -->
-                        <article class="event">
+                     <!--   <article class="event">
                             <figure class="date">
                                 <div class="month">mar</div>
                                 <div class="day">23</div>
@@ -76,7 +86,7 @@
                                 </header>
                                 <div class="additional-info">Lorem Ipsum</div>
                             </aside>
-                        </article><!-- /article -->
+                        </article><!-- /article --> 
                     </div><!-- /.section-content -->
                 </section><!-- /.events-small -->
             </div><!-- /.col-md-4 -->

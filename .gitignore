@@ -3,6 +3,7 @@ local/*
 include/*
 .komodo*
 lib/*
+media
 Primegate.ko*
 ./static
 ./settings.py
