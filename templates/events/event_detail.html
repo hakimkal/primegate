@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<!-- Breadcrumb -->
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="{% url "home" %}">Home</a></li>
+         
+     
+        <li><a href="#">Events</a></li>
+        <li class="active">Event Detail</li>
+    </ol>
+</div>
+<!-- end Breadcrumb -->
+
+
+<!-- Page Content -->
+<div id="page-content">
+    <div class="container">
+        <header><h1>
+{{event.caption}}</h1></header>
+        <div class="row">
+            <!-- Course Image -->
+            <div class="col-md-2 col-sm-3">
+                <figure class="event-image">
+                    <div class="image-wrapper"><img src="{{event.image.url}}"></div>
+                </figure>
+            </div><!-- end Course Image -->
+            <!--MAIN Content-->
+            <div class="col-md-6 col-sm-9">
+                <div id="page-main">
+                    <section id="event-detail">
+                        <article class="event-detail">
+                            <section id="event-header">
+                                <header>
+                                    <h2 class="event-date">{{ event.start_date|date:"D M d,Y"}}</h2>
+                                </header>
+                                <hr>
+                                <div class="course-count-down" id="course-count-down">
+                                   <!-- <figure class="course-start">Event starts  in:</figure>-->
+                                    <!-- /.course-start -->
+
+                                    <div class="count-down-wrapper">
+                                        
+                                        <script type="text/javascript">var _date = 'Jun 27, 2015 23:28';</script>
+                                    </div><!-- /.count-down-wrapper -->
+
+                                </div><!-- /.course-count-down -->
+                                <hr>
+                                <figure>
+                                    <!--<span class="course-summary" id="course-length"><i class="fa fa-calendar-o"></i>7 weeks</span>
+                                    <span class="course-summary" id="course-time-amount"><i class="fa fa-folder-o"></i>4-6 hours of work / week</span>
+                                    <span class="course-summary" id="course-course-time"><i class="fa fa-clock-o"></i>6:00pm – 8:00pm</span>
+                                --></figure>
+                            </section><!-- /#course-header -->
+
+                            <section id="course-info">
+                                <header><h2>Event Info</h2></header>
+                                {{ event.event_details}}
+                            </section><!-- /#course-info -->
+
+                           <!-- <section id="course-video">
+                                <header><h2>Video Presentation</h2></header>
+                                <iframe src="http://player.vimeo.com/video/64373696" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                            </section>-->
+                            <!-- /#course-video -->
+
+                            <!--<section id="course-speakers">
+                                <header><h2>Performers</h2></header>
+                                <div class="author-block">
+                                    <a href="member-detail.html"><figure class="author-picture"><img src="img/student-testimonial.jpg" alt=""></figure></a>
+                                    <article class="paragraph-wrapper">
+                                        <div class="inner">
+                                            <a href="member-detail.html"><header>Claire Doe</header></a>
+                                            <figure>Marketing Specialist</figure>
+                                            <p>
+                                                Morbi nec nisi ante. Quisque lacus ligula, iaculis in elit et, interdum semper quam. Fusce in interdum tortor.
+                                                Ut sollicitudin lectus dolor eget imperdiet libero pulvinar sit amet.
+                                            </p>
+                                        </div>
+                                    </article>
+                                </div>--><!-- /.author -->
+                                
+                   <!-- </section>--><!-- /#course-speakers -->
+
+                            <!--<section id="map">
+                                <header><h2>Place on Map</h2></header>
+                                <div class="map-wrapper">
+                                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2482.389928525137!2d-0.11316612883517647!3d51.52440760342934!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b48959f07e1%3A0xb6b70e6a76950525!2s5+Phoenix+Pl!5e0!3m2!1ssk!2s!4v1395674632609" width="100%" height="350" frameborder="0" style="border:0"></iframe>
+                                </div>
+                            </section>--><!-- /#map -->
+                        </article><!-- /.course-detail -->
+                    </section><!-- /.course-detail -->
+                </div><!-- /#page-main -->
+            </div><!-- /.col-md-8 -->
+
+            <!--SIDEBAR Content-->
+            <div class="col-md-4">
+                <div id="page-sidebar" class="sidebar">
+                    <aside class="news-small" id="news-small">
+                        <header>
+                            <h2>Related News</h2>
+                        </header>
+                        <div class="section-content">
+                           {% include "news/related_news.html" %}
+                        </div><!-- /.section-content -->
+                        <a href="#" class="read-more">All News</a>
+                    </aside><!-- /.news-small -->
+                    <!--<aside id="archive">
+                        <header>
+                            <h2>Course Archive</h2>
+                            <ul class="list-links">
+                                <li><a href="#">February 2014</a></li>
+                                <li><a href="#">January 2014</a></li>
+                                <li><a href="#">November 2013</a></li>
+                                <li><a href="#">October 2013</a></li>
+                                <li><a href="#">August 2013</a></li>
+                                <li><a href="#">July 2013</a></li>
+                                <li><a href="#">June 2013</a></li>
+                                <li><a href="#">May 2013</a></li>
+                            </ul>
+                        </header>
+                    </aside>--><!-- /archive -->
+                </div><!-- /#sidebar -->
+            </div><!-- /.col-md-4 -->
+            <!-- end SIDEBAR Content-->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div>
+<!-- end Page Content -->
+
+{% endblock %}

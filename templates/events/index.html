@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<!-- Breadcrumb -->
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="{% url "home" %}">Home</a></li>
+        <li class="active">Events</li>
+    </ol>
+</div>
+<!-- end Breadcrumb -->
+
+ <!-- Page Content -->
+<div id="page-content">
+    <div class="container">
+        <div class="row">
+            <!--MAIN Content-->
+            <div class="col-md-8">
+                <div id="page-main">
+                    <section class="events images" id="events">
+                        <header><h1>Events</h1></header>
+                        <div class="section-content">
+                           {% for e in events %}
+                            <article class="event">
+                                <div class="event-thumbnail">
+                                    <figure class="event-image">
+                                        <div class="image-wrapper"><img src="{{ e.image.url }}"></div>
+                                    </figure>
+                                    <figure class="date">
+                                        <div class="month">{{ e.start_date|date:"M"}}</div>
+                                        <div class="day">{{ e.start_date.day}}</div>
+                                    </figure>
+                                </div>
+                                <aside>
+                                    <header>
+                                        <a href="{% url "event" e.id %}">
+                                            {{e.caption}}</a>
+                                    </header>
+                                    <div class="additional-info"><span class="fa fa-map-marker"></span>{{e.synopsis}}</div>
+                                    <div class="description">
+                                        <p>
+                                            {{ e.event_detail}}
+                                        </p>
+                                        <br/><br/>
+                                    </div>
+                                    <a href="{% url "event" e.id %}" class="btn btn-framed btn-color-grey btn-small">View Details</a>
+                                </aside>
+                            </article><!-- /.event -->
+                            
+                            
+                            {% endfor %}
+                             
+                            </div><!-- /.section-content -->
+                    </section><!-- /.events-images -->
+                    <div class="center">
+                         
+                        <ul class="pagination">
+                            {% if events.has_previous %}
+                            <li class="active"><a href="?page={{events.previous_page_number}}">Prev</a></li>
+                        {% endif %}
+                            <li><a href="#">{{ events.number}} / {{events.paginator.num_pages}}</a></li>
+                           {% if events.has_next %}
+                            <li class="active"><a href="?page={{events.next_page_number}}">Next</a></li>
+                        {% endif %}
+                        </ul>
+                     
+                    </div><!-- /.center -->
+                </div><!-- /#page-main -->
+            </div><!-- /.col-md-8 -->
+
+            <!--SIDEBAR Content-->
+            <div class="col-md-4">
+                <div id="page-sidebar" class="sidebar">
+                    <aside class="news-small" id="news-small">
+                        <header>
+                            <h2>Related News</h2>
+                        </header>
+                        <div class="section-content">
+                           {% include "news/related_news.html" %}
+                        </div><!-- /.section-content -->
+                        <a href="#" class="read-more">All News</a>
+                    </aside><!-- /.news-small -->
+                    <aside id="newsletter">
+                        <header>
+                            <h2>Newsletter</h2>
+                            <div class="section-content">
+                               {% include "publicpages/nlform.html" %}
+                            </div><!-- /.section-content -->
+                        </header>
+                    </aside><!-- /.newsletter -->
+                </div><!-- /#sidebar -->
+            </div><!-- /.col-md-4 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div>
+<!-- end Page Content -->
+
+
+{% endblock %}
