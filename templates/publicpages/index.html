@@ -93,28 +93,22 @@ The  environment is built and furnished bearing  children  in mind because we pl
     <div class="block">
         <div class="container">
             <div class="author-carousel">
+                 
                 <div class="author">
                     <blockquote>
-                        <figure class="author-picture"><img src="img/student-testimonial.jpg" alt=""></figure>
+                        <figure class="author-picture"><img src="{% static "img/student-testimonial.jpg" %}" alt=""></figure>
+                        {% for l in testimonials %}
                         <article class="paragraph-wrapper">
                             <div class="inner">
-                                <header>Morbi nec nisi ante. Quisque lacus ligula, iaculis in elit et, interdum semper quam. Fusce in interdum tortor.
-                                    sollicitudin lectus dolor eget imperdiet libero pulvinar sit amet.</header>
-                                <footer>Claire Doe</footer>
+                                <header>
+                                   {{l.remark}}
+                                </header>
+                                <footer>{{ l.name}}</footer>
+                                
+                            {% endfor %}
                             </div>
                         </article>
-                    </blockquote>
-                </div><!-- /.author -->
-                <div class="author">
-                    <blockquote>
-                        <figure class="author-picture"><img src="img/student-testimonial.jpg" alt=""></figure>
-                        <article class="paragraph-wrapper">
-                            <div class="inner">
-                                <header>Morbi nec nisi ante. Quisque lacus ligula, iaculis in elit et, interdum semper quam. Fusce in interdum tortor.
-                                    Ut sollicitudin lectus dolor eget imperdiet libero pulvinar sit amet.</header>
-                                <footer>Claire Doe</footer>
-                            </div>
-                        </article>
+                        
                     </blockquote>
                 </div><!-- /.author -->
             </div><!-- /.author-carousel -->

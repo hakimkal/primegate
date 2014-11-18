@@ -4,6 +4,7 @@ from publicpages.forms import *
 from events.models import Event
 from news.models import News
 from team.models import Team
+from testimonials.models import Testimonial
 from nlsubscribers.forms import NlsubscriberForm
 from django.core.mail import send_mail
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
@@ -15,9 +16,9 @@ def index(request):
     news = News.objects.order_by('-created')[:5]
     events = Event.objects.order_by('-start_date')[:3]
     cssClass = "page-sub-page page-microsite"
-    #
+    testimonials = Testimonial.objects.order_by('-created')[:5]
     nlsubscriber_form = NlsubscriberForm()
-    return render(request,'publicpages/index.html',{'events':events,'news':news,'current_date':now,'theyear': theyear,'cssClass': cssClass,'nlform':nlsubscriber_form})
+    return render(request,'publicpages/index.html',{'testimonials':testimonials,'events':events,'news':news,'current_date':now,'theyear': theyear,'cssClass': cssClass,'nlform':nlsubscriber_form})
 
 def about(request):
     now = datetime.datetime.now()
@@ -56,6 +57,7 @@ def team(request):
     team_list = Team.objects.all()
     paginator = Paginator(team_list,5)
     news = News.objects.order_by('-created')[:5]
+     
     cssClass ="page-sub-page page-members page-microsite"
     now = datetime.datetime.now()
     theyear= datetime.datetime.today().year

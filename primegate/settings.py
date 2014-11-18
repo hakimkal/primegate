@@ -60,6 +60,7 @@ INSTALLED_APPS = (
     'image_cropping',
     'team',
     'faqs',
+    'testimonials',
     #'corsheaders',
 )
 
