@@ -1,6 +1,5 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
-from django.conf.urls.static import static
 
 import publicpages.views
 import nlsubscribers.views
@@ -31,6 +30,9 @@ urlpatterns = patterns('',
     url(r'^testimonials/$',testimonials.views.index, name="testimonials"),
     url(r'^admin/', include(admin.site.urls)),
 )
-urlpatterns += staticfiles_urlpatterns()
-urlpatterns +=  static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += patterns(
+        'django.views.static',
+        (r'media/(?P<path>.*)',
+        'serve',
+        {'document_root': settings.MEDIA_ROOT}), )

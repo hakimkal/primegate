@@ -118,8 +118,10 @@ else:
     STATIC_ROOT = PRODUCTION_STATIC_ROOT
     STATIC_URL = PRODUCTION_STATIC_URL
 
-MEDIA_ROOT = os.path.join(PROJECT_PATH, "media")
-MEDIA_URL = "/media/"
+#MEDIA_ROOT = os.path.join(PROJECT_PATH, "media")
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(PROJECT_PATH, 'media') # Absolute path to the media directory
 
 
 #print "Project Path:" + PROJECT_PATH
