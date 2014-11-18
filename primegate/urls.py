@@ -30,9 +30,9 @@ urlpatterns = patterns('',
     url(r'^testimonials/$',testimonials.views.index, name="testimonials"),
     url(r'^admin/', include(admin.site.urls)),
 )
-if settings.DEBUG:
-    urlpatterns += patterns(
-        'django.views.static',
-        (r'media/(?P<path>.*)',
-        'serve',
-        {'document_root': settings.MEDIA_ROOT}), )
+#if settings.DEBUG:
+urlpatterns += patterns(
+    'django.views.static',
+    (r'media/(?P<path>.*)',
+    'serve',
+    {'document_root': settings.MEDIA_ROOT}), )
