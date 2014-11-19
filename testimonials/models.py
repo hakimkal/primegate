@@ -4,7 +4,7 @@ from datetime import datetime
 class Testimonial(models.Model):
     image = models.ImageField(upload_to='team_images')
     # size is "width x height"
-    cropping = ImageRatioField('image', '100x100')
+    cropping = ImageRatioField('image', '200x200')
     name = models.CharField(max_length=100)
     remark= models.TextField()
     designation =  models.CharField(max_length=255,default='Parent')
