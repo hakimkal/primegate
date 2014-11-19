@@ -15,7 +15,7 @@
             <div class="col-md-4 col-sm-12">
                 <section id="about">
                     <header>
-                        <h2>About Primegate Academy</h2>
+                        <h2>Primegate Int'l Academy</h2>
                     </header>
                     <div class="section-content">
                         <img src="{% static "img/students.jpg" %}" alt="" style="" class="add-margin">
@@ -33,7 +33,7 @@ The  environment is built and furnished bearing  children  in mind because we pl
             <div class="col-md-4 col-sm-6">
                 <section class="news-small" id="news-small">
                     <header>
-                        <h2>News</h2>
+                        <h2 class="col-md-offset-5">News</h2>
                     </header>
                     <div class="section-content">
                         {% for n in news %}
@@ -51,8 +51,8 @@ The  environment is built and furnished bearing  children  in mind because we pl
             <div class="col-md-4 col-sm-6">
                 <section class="events small" id="events-small">
                     <header>
-                        <h2>Events</h2>
-                        <a href="#" class="link-calendar">Calendar</a>
+                        <h2 class="col-md-offset-5">Events</h2>
+                        <!--<a href="#" class="link-calendar">Calendar</a>-->
                     </header>
                     <div class="section-content">
                      {% include "events/home_page_list.html" %}
