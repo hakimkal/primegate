@@ -12,6 +12,24 @@
 <div class="block">
     <div class="container">
         <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <section id="about">
+                    <header>
+                        <h2>About Primegate Academy</h2>
+                    </header>
+                    <div class="section-content">
+                        <img src="{% static "img/students.jpg" %}" alt="" style="" class="add-margin">
+                        <p><strong>Welcome to Primegate International Academy,</strong>
+                            
+                         A 21<sup>ST</sup> Century School tailored to prepare children for the future.
+Our world has changed and still is changing. Education is the necessary tool to help structure our children towards a great future.
+Here at Primegate , detailed attention is given to giving quality education. Primegate International Academy is an enchanted environment for children.
+The  environment is built and furnished bearing  children  in mind because we place utmost importance on them.<br/><br/>
+                        </p>
+                        <a href="{% url "about" %}" class="read-more stick-to-bottom">Read More</a>
+                    </div><!-- /.section-content -->
+                </section><!-- /.about -->
+            </div><!-- /.col-md-4 -->
             <div class="col-md-4 col-sm-6">
                 <section class="news-small" id="news-small">
                     <header>
@@ -65,24 +83,7 @@
                     </div><!-- /.section-content -->
                 </section><!-- /.events-small -->
             </div><!-- /.col-md-4 -->
-            <div class="col-md-4 col-sm-12">
-                <section id="about">
-                    <header>
-                        <h2>About Primegate Academy</h2>
-                    </header>
-                    <div class="section-content">
-                        <img src="{% static "img/students.jpg" %}" alt="" style="" class="add-margin">
-                        <p><strong>Welcome to Primegate International Academy,</strong>
-                            
-                         A 21<sup>ST</sup> Century School tailored to prepare children for the future.
-Our world has changed and still is changing. Education is the necessary tool to help structure our children towards a great future.
-Here at Primegate , detailed attention is given to giving quality education. Primegate International Academy is an enchanted environment for children.
-The  environment is built and furnished bearing  children  in mind because we place utmost importance on them.<br/><br/>
-                        </p>
-                        <a href="{% url "about" %}" class="read-more stick-to-bottom">Read More</a>
-                    </div><!-- /.section-content -->
-                </section><!-- /.about -->
-            </div><!-- /.col-md-4 -->
+            
         </div><!-- /.row -->
     </div><!-- /.container -->
 </div>
