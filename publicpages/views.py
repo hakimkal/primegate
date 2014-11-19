@@ -6,6 +6,7 @@ from news.models import News
 from team.models import Team
 from testimonials.models import Testimonial
 from nlsubscribers.forms import NlsubscriberForm
+from homepagebanners.models import Homepagebanner
 from django.core.mail import send_mail
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 import datetime
@@ -15,10 +16,11 @@ def index(request):
     theyear = datetime.datetime.today().year
     news = News.objects.order_by('-created')[:3]
     events = Event.objects.order_by('-start_date')[:3]
+    banners = Homepagebanner.objects.order_by('-created').all()[:5]
     cssClass = "page-sub-page page-microsite"
     testimonials = Testimonial.objects.order_by('-created')[:5]
     nlsubscriber_form = NlsubscriberForm()
-    return render(request,'publicpages/index.html',{'testimonials':testimonials,'events':events,'news':news,'current_date':now,'theyear': theyear,'cssClass': cssClass,'nlform':nlsubscriber_form})
+    return render(request,'publicpages/index.html',{'banners':banners,'testimonials':testimonials,'events':events,'news':news,'current_date':now,'theyear': theyear,'cssClass': cssClass,'nlform':nlsubscriber_form})
 
 def about(request):
     now = datetime.datetime.now()

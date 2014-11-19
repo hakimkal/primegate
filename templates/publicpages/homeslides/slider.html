@@ -14,7 +14,7 @@
                                     <a href="#" class="btn btn-framed btn-small btn-color-white">View Details</a>
                                 </div><!-- /.col-md-4 -->
                                 <div class="col-md-8 col-sm-8">
-                                    <div class="image-carousel-slide"><img src="{% static "img/slide-22.jpg" %}" alt=""></div>
+                                    <div class="image-carousel-slide"><img src="{% static "img/3.jpg" %}" alt=""></div>
                                 </div><!-- /.col-md-8 -->
                             </div><!-- /.slide -->
                             <div class="slide">
@@ -41,6 +41,23 @@
                                     <div class="image-carousel-slide"><img src="{% static "img/6.jpg" %}" alt=""></div>
                                 </div><!-- /.col-md-8 -->
                             </div><!-- /.slide -->
+							{% load cropping %}
+							{% for b in banners %}
+								
+								<div class="slide">
+                                <div class="col-md-4 col-sm-4">
+                                    <h1>{{ b.caption }}</h1>
+                                    <p>
+                                        {{ b.brief_info }}      </p>
+									{% if b.url %}
+                                    <a href="#" class="btn btn-framed btn-small btn-color-white">View Details</a>
+                                {% endif %}
+								</div><!-- /.col-md-4 -->
+                                <div class="col-md-8 col-sm-8">
+                                    <div class="image-carousel-slide"><img src="{% cropped_thumbnail b "cropping" scale=0.5  %}" alt=""></div>
+                                </div><!-- /.col-md-8 -->
+                            </div><!-- /.slide -->
+							{% endfor %}
                         </div><!-- /.image-carousel -->
                     </div><!-- /.row -->
                 </div><!-- /.col-md-9 -->
