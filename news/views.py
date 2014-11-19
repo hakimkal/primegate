@@ -40,23 +40,24 @@ def index(request):
     return render(request, "news/index.html", myDict)
 
 def detail(request, news_id):
+    
     cssClass = "page-sub-page page-blog-detail page-microsite"    
     now = datetime.datetime.now()
     theyear = datetime.datetime.today().year
+    news = News.objects.order_by("-created").all()[:4]
     
-    
-    news = News.objects.get(pk=news_id)
-    
+    thenews = News.objects.get(pk=news_id)
+    #print thenews.user.first_name
     nlsubscriber_form = NlsubscriberForm()
     myDict = {'current_date':now
               ,
               'theyear': theyear,
               
-              
+              'news': news,
               'cssClass':cssClass,
               'nlform': nlsubscriber_form
               }
     
     
-    myDict['news']= news    
+    myDict['thenews']= thenews    
     return render(request, "news/news_detail.html", myDict)

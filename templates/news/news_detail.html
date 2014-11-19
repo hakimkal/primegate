@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% load cropping %}
+{% block content %}
+<!-- Breadcrumb -->
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="{% url "home" %}">Home</a></li>
+         <li><a href="{% url "news_listing" %}">News</a></li>
+        <li class="active">News story</li>
+    </ol>
+</div>
+<!-- end Breadcrumb -->
+
+
+<!-- Page Content -->
+<div id="page-content">
+    <div class="container">
+        <div class="row">
+            <!--MAIN Content-->
+            <div class="col-md-8">
+                <div id="page-main">
+                    <section id="blog-detail">
+                        <header><h1>News </h1></header>
+                        <br>
+                        <article class="blog-detail">
+                            <header class="blog-detail-header">
+                                <img src="{% cropped_thumbnail thenews "cropping" scale=0.5  %}" />
+                                <h2>{{thenews.caption}} </h2>
+                                <div class="blog-detail-meta">
+                                    <span class="date"><span class="fa fa-file-o"></span>{{ thenews.created|date:"d-M-Y" }}</span>
+                                    <span class="author"><span class="fa fa-user"></span>{{ thenews.user.first_name }} {{ thenews.user.last_name}}</span>
+                                   
+                                </div>
+                            </header>
+                            <hr>
+                            <h4>{{ thenews.synopsis }}</h4>
+                            <p>{{ thenews.story }}</p>
+                            <footer>
+                                <!--
+                                <section id="share-post">
+                                    <div class="icons">
+                                        <span>Share:</span>
+                                        <a href="#"><i class="fa fa-twitter"></i></a>
+                                        <a href="#"><i class="fa fa-facebook"></i></a>
+                                        <a href="#"><i class="fa fa-pinterest"></i></a>
+                                        <a href="#"><i class="fa fa-youtube-play"></i></a>
+                                    </div><!-- /.icons               </section>-->
+                    <!-- /share -->
+                                <hr>
+                                <section id="tags">
+                                    <a href="#" class="tag">Primegate</a>
+                                    <a href="#" class="tag">Academyy</a>
+                                    <a href="#" class="tag">News</a>
+                                    <a href="#" class="tag">Abuja, Nigeria</a>
+                                </section><!-- /tags -->
+                                 
+                            </footer>
+                        </article>
+                    </section><!-- /.blog-detail -->
+
+                    <hr>
+
+                    
+                    
+
+                     
+                </div><!-- /#page-main -->
+            </div><!-- /.col-md-8 -->
+
+            <!--SIDEBAR Content-->
+            <div class="col-md-4">
+                <div id="page-sidebar" class="sidebar">
+                    <aside class="news-small" id="news-small">
+                        <header>
+                            <h2>Related News</h2>
+                        </header>
+                        <div class="section-content">
+                           {% include "news/related_news.html" %}
+                        </div><!-- /.section-content -->
+                        <a href="{% url 'news_listing' %}" class="read-more">All News</a>
+                    </aside><!-- /.news-small -->
+                    <aside id="newsletter">
+                        <header>
+                            <h2>Newsletter</h2>
+                            <div class="section-content">
+                               {% include "publicpages/nlform.html" %}
+                            </div><!-- /.section-content -->
+                        </header>
+                    </aside><!-- /.newsletter -->
+                     
+                </div><!-- /#sidebar -->
+            </div><!-- /.col-md-4 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div>
+<!-- end Page Content -->
+
+{% endblock %}

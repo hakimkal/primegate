@@ -54,7 +54,7 @@
 							{% for n in news %}
                             <article>
                                 <header><i class="fa fa-file-o"></i>
-									<a href="#">
+									<a href="{% url 'news_detail' n.id %}">
 										{{ n.caption }}
 											</a></header>
                             </article><!-- /article -->

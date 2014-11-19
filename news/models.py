@@ -13,7 +13,7 @@ class News(models.Model):
     modified = models.DateTimeField(default=datetime.now(),auto_now=True, auto_now_add=False)
     story = models.TextField(blank= True)
     tags = models.CharField(max_length=255)
-    cropping = ImageRatioField('image', '772x514')
+    cropping = ImageRatioField('image', '1400x700')
     user = models.ForeignKey(get_user_model())
     
     

@@ -13,7 +13,7 @@ import datetime
 def index(request):
     now = datetime.datetime.now()
     theyear = datetime.datetime.today().year
-    news = News.objects.order_by('-created')[:5]
+    news = News.objects.order_by('-created')[:3]
     events = Event.objects.order_by('-start_date')[:3]
     cssClass = "page-sub-page page-microsite"
     testimonials = Testimonial.objects.order_by('-created')[:5]
