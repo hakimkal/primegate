@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    
+    {% load cropping %}
+<!-- Breadcrumb -->
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="{% url "home" %}">Home</a></li>
+        <li class="active">News</li>
+    </ol>
+</div>
+<!-- end Breadcrumb -->
+<!-- Page Content -->
+<div id="page-content">
+    <div class="container">
+        <div class="row">
+            <!--MAIN Content-->
+            <div class="col-md-8">
+                <div id="page-main">
+                    <section class="blog-listing" id="blog-listing">
+                        <header><h1>News</h1></header>
+                        
+                        {% for  n in news %}
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6">
+                                <article class="blog-listing-post">
+                                    <figure class="blog-thumbnail">
+                                        <figure class="blog-meta"><span class="fa fa-file-text-o"></span>{{n.created|date:"d-m-Y"}}</figure>
+                                        <div class="image-wrapper"><a href="{% url 'news_detail' n.id %}"><img src="{% cropped_thumbnail n  "cropping"  scale=0.5 %}"></a></div>
+                                    </figure>
+                                    <aside>
+                                        <header>
+                                            <a href="{% url 'news_detail' n.id %}"><h3>{{n.caption}} </h3></a>
+                                        </header>
+                                        <div class="description">
+                                            <p>
+                                                
+                                             {{n.story}}
+
+                                            </p>
+                                        </div>
+                                        <a href="{% url 'news_detail' n.id %}" class="read-more stick-to-bottom">Read More</a>
+                                    </aside>
+                                </article><!-- /article -->
+                            </div><!-- /.col-md-6 -->
+                             
+                        {% if forloop.counter|divisibleby:2 %}
+                        </div><!-- /.row -->
+                    {% endif %}
+{% endfor %}
+                         
+
+                    </section><!-- /.blog-listing -->
+                    <div class="center">
+                        <ul class="pagination">
+                            {% if news.has_previous %}
+                            <li class="active"><a href="?page={{news.previous_page_number}}">Prev</a></li>
+                        {% endif %}
+                            <li><a href="#">{{ news.number}} / {{news.paginator.num_pages}}</a></li>
+                           {% if news.has_next %}
+                            <li class="active"><a href="?page={{news.next_page_number}}">Next</a></li>
+                        {% endif %}
+                        </ul>
+                    </div>
+                </div><!-- /#page-main -->
+            </div><!-- /.col-md-8 -->
+
+            <!--SIDEBAR Content-->
+            <div class="col-md-4">
+                <div id="page-sidebar" class="sidebar">
+                    <aside class="news-small" id="news-small">
+                        <header>
+                            <h2>Related News</h2>
+                        </header>
+                        <div class="section-content">
+                            <article>
+                                <figure class="date"><i class="fa fa-file-o"></i>08-24-2014</figure>
+                                <header><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a></header>
+                            </article><!-- /article -->
+                            <article>
+                                <figure class="date"><i class="fa fa-file-o"></i>08-24-2014</figure>
+                                <header><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a></header>
+                            </article><!-- /article -->
+                            <article>
+                                <figure class="date"><i class="fa fa-file-o"></i>08-24-2014</figure>
+                                <header><a href="#">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a></header>
+                            </article><!-- /article -->
+                        </div><!-- /.section-content -->
+                        <a href="#" class="read-more">All News</a>
+                    </aside><!-- /.news-small -->
+                    <aside id="newsletter">
+                        <header>
+                            <h2>Newsletter</h2>
+                            <div class="section-content">
+                                <div class="newsletter">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Your e-mail">
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn"><i class="fa fa-angle-right"></i></button>
+                                    </span>
+                                    </div><!-- /input-group -->
+                                </div><!-- /.newsletter -->
+                                <p class="opacity-50">Ut tincidunt, quam in tincidunt vestibulum, turpis ipsum porttitor nisi, et fermentum augue
+                                    lit eu neque. In at tempor dolor, sit amet dictum lacus. Praesent porta orci eget laoreet ultrices.
+                                </p>
+                            </div><!-- /.section-content -->
+                        </header>
+                    </aside><!-- /.newsletter -->
+                    <aside id="archive">
+                        <header>
+                            <h2>Archive</h2>
+                            <ul class="list-links">
+                                <li><a href="#">February 2014</a></li>
+                                <li><a href="#">January 2014</a></li>
+                                <li><a href="#">November 2013</a></li>
+                                <li><a href="#">October 2013</a></li>
+                                <li><a href="#">August 2013</a></li>
+                                <li><a href="#">July 2013</a></li>
+                                <li><a href="#">June 2013</a></li>
+                                <li><a href="#">May 2013</a></li>
+                            </ul>
+                        </header>
+                    </aside><!-- /archive -->
+                </div><!-- /#sidebar -->
+            </div><!-- /.col-md-4 -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div>
+<!-- end Page Content -->
+
+
+
+{% endblock %}

@@ -6,8 +6,9 @@
             <div class="navigation-contact pull-left">Call Us:  <span class="opacity-70">080-330-814-68</span></div>
 			<ul class="secondary-navigation list-unstyled pull-right">
                 <li><a href="{% url "faqs" %}">FAQs</a></li>
-               <!-- <li><a href="#">Privacy Policy</a></li>
-				<li><a href="#">Copyright Policy</a></li>-->
+				 <li><a href="/admin">Staff Login</a></li>
+                 <li><a href="http://webmail.webfaction.com" target="_blank">Staff Email</a></li>
+				<!--<li><a href="#">Copyright Policy</a></li>-->
             </ul>
         </div>
     </div><!-- /.secondary-navigation -->
@@ -50,7 +51,7 @@
                                 <li><a href="{% url "team" %}">The Primegate Team</a></li>
                             </ul>
 						</li>
-						 <li><a href="#" class=" has-child no-link">Downloads</a>
+						 <!--<li><a href="#" class=" has-child no-link">Downloads</a>
 							<ul class="list-unstyled child-navigation">
                                 <li><a href="#">Reports</a></li>
                                 <li><a href="#">Assessment</a></li>
@@ -59,13 +60,16 @@
 								<li><a href="#">Video Clips</a></li>
                                 <li><a href="#">Calendar</a></li>
                             </ul>
-						</li>
+						</li>-->
                         <li>
                             <a href="{% url "event_listing" %}">Events</a>
                         </li>
-                        <li>
-                            <a href="#">Blog</a>
+						<li>
+                            <a href="{% url "news_listing" %}">News</a>
                         </li>
+                        <!--<li>
+                            <a href="#">Blog</a>
+                        </li>-->
                         <li>
                             <a href="{% url "contact" %}">Contact Us</a>
                         </li>

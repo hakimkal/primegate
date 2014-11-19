@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+from image_cropping import ImageRatioField
 from datetime import datetime
 class News(models.Model):
     class Meta:
@@ -12,6 +13,7 @@ class News(models.Model):
     modified = models.DateTimeField(default=datetime.now(),auto_now=True, auto_now_add=False)
     story = models.TextField(blank= True)
     tags = models.CharField(max_length=255)
+    cropping = ImageRatioField('image', '772x514')
     user = models.ForeignKey(get_user_model())
     
     

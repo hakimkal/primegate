@@ -93,11 +93,12 @@ The  environment is built and furnished bearing  children  in mind because we pl
     <div class="block">
         <div class="container">
             <div class="author-carousel">
-                 
+                 {% load cropping %}
                 <div class="author">
                     <blockquote>
-                        <figure class="author-picture"><img src="{% static "img/student-testimonial.jpg" %}" alt=""></figure>
                         {% for l in testimonials %}
+                               <figure class="author-picture"><img src="{% cropped_thumbnail l  "cropping" %}" alt=""></figure>
+                     
                         <article class="paragraph-wrapper">
                             <div class="inner">
                                 <header>
