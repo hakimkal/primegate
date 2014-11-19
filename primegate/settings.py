@@ -63,6 +63,7 @@ INSTALLED_APPS = (
     'faqs',
     'testimonials',
     'homepagebanners',
+    'gallery'
     #'corsheaders',
 )
 

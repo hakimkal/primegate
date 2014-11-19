@@ -71,3 +71,21 @@ def team(request):
     except EmptyPage:
         team = paginator.page(paginator.num_pages)
     return render(request, 'publicpages/team.html',{'team':team,'nlform':nlsubscriber_form,'news':news,'current_date':now, 'theyear': theyear,'cssClass':cssClass})
+
+def gallery(request):
+    nlsubscriber_form = NlsubscriberForm()
+    team_list = Team.objects.all()
+    paginator = Paginator(team_list,5)
+    news = News.objects.order_by('-created')[:5]
+     
+    cssClass ="page-sub-page page-members page-microsite"
+    now = datetime.datetime.now()
+    theyear= datetime.datetime.today().year
+    page = request.GET.get('page')
+    try:
+        team = paginator.page(page)
+    except PageNotAnInteger:
+        team = paginator.page(1)
+    except EmptyPage:
+        team = paginator.page(paginator.num_pages)
+    return render(request, 'publicpages/gallery.html',{'team':team,'nlform':nlsubscriber_form,'news':news,'current_date':now, 'theyear': theyear,'cssClass':cssClass})

@@ -8,6 +8,7 @@ import events.views
 import faqs.views
 import team.views
 import testimonials.views
+import gallery.views
 from django.contrib import admin
 admin.autodiscover()
 
@@ -29,6 +30,7 @@ urlpatterns = patterns('',
     url(r'^teams/$',team.views.index, name="theteam"),
     url(r'faq/$',faqs.views.index, name="faqs"),
     url(r'^testimonials/$',testimonials.views.index, name="testimonials"),
+    url(r'^gallery/$',gallery.views.index, name="gallery"),
     url(r'^admin/', include(admin.site.urls)),
 )
 #if settings.DEBUG:
