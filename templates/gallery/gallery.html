@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+<!-- Breadcrumb -->
+<div class="container">
+    <ol class="breadcrumb">
+        <li><a href="{% url "home" %}">Home</a></li>
+        <li class="active">Primegate Gallery</li>
+    </ol>
+</div>
+<!-- end Breadcrumb -->
+
+<!-- Page Content -->
+<div id="page-content">
+
+ 
+<!-- Our Professors, Gallery -->
+<div class="block">
+    <div class="container">
+        <div class="row">
+        
+{% load cropping %}
+            <div class="col-md-8 col-sm-8">
+                <section id="gallery">
+                    <header>
+                        <h2>Gallery </h2>
+                    </header>
+                    <div class="section-content">
+                        <ul class="gallery-list">
+                         {% for i in galleries  %}
+                        
+                         <li>
+                            <a href="{% cropped_thumbnail i "cropping"  %}" class="image-popup" title="{{ i.caption }}"> <img src="{% cropped_thumbnail i  "thumb" %}" alt=""></a>
+                         </li
+                         {% endfor %}
+                     </ul>
+                        
+                    </div><!-- /.section-content -->
+                </section><!-- /.gallery -->
+            </div><!-- /.col-md-4 -->
+
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</div>
+<!-- end Our Professors, Gallery -->
+ 
+</div>
+<!-- end Page Content -->
+{% endblock %}
