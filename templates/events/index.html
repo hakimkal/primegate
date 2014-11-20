@@ -25,7 +25,9 @@
                             <article class="event">
                                 <div class="event-thumbnail">
                                     <figure class="event-image">
+                                        {% if e.cropping %}
                                         <div class="image-wrapper"><img src="{% cropped_thumbnail e "cropping" scale=0.6 %}"></div>
+                                       {% endif %}
                                     </figure>
                                     <figure class="date">
                                         <div class="month">{{ e.start_date|date:"M"}}</div>
