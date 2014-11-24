@@ -8,7 +8,7 @@ from news.models import News
 class NewsAdmin(ImageCroppingMixin,admin.ModelAdmin):
     save_on_top = True
     list_display= ('caption','story','image','created', 'modified', 'tags')
-    exclude = ('user')
+    exclude = ('user',)
     
     
     def save_model(self, request, obj, form, change):

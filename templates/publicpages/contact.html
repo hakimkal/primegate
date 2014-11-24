@@ -56,7 +56,25 @@
                         </div>
                     </section>
                     <section id="contact-form" class="clearfix">
-                        <header><h2>Send Us a Message</h2></header>
+                      
+                        <header>
+                            
+                            <h2>Send Us a Message</h2>
+                       
+                        
+                        
+                        </header>
+                       <ul
+                            class="messages">
+    {% for message in messages %}
+    {% if message.tags == 'error' %}
+     <div class="alert alert-danger">{{ message }}
+     {% else %}    
+    <div {% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>{{ message }}
+    {% endif %}
+    </div>
+    {% endfor %}
+</ul>
                         <form class="contact-form" id="contactform" method="post" action="{% url "contact" %}">
                             {% csrf_token %}
                             
@@ -75,6 +93,16 @@
                                         <div class="controls">
                                             <label for="email">Your Email</label>
                                           {{form.email}}
+                                        </div><!-- /.controls -->
+                                    </div><!-- /.control-group -->
+                                </div><!-- /.col-md-4 -->
+                            </div><!-- /.row -->
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="input-group">
+                                        <div class="controls">
+                                            <label for="message">{{ form.subject.label }}</label>
+                                          {{form.subject}}
                                         </div><!-- /.controls -->
                                     </div><!-- /.control-group -->
                                 </div><!-- /.col-md-4 -->

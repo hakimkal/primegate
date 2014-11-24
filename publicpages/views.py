@@ -9,6 +9,8 @@ from nlsubscribers.forms import NlsubscriberForm
 from homepagebanners.models import Homepagebanner
 from django.core.mail import send_mail
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
+from django.contrib import messages
+
 import datetime
 # Create your views here.
 def index(request):
@@ -39,15 +41,23 @@ def contact(request):
         if form.is_valid():
             name  = form.cleaned_data['name']
             email = form.cleaned_data['email']
+            subject = form.cleaned_data['subject']
             message = form.cleaned_data["message"]
             cc_myself = 'info@leproghrammeen.com'
+            to = 'info@primegateacademy.com'
+            recipients = ['okerekeaugusta@yahoo.com']
+        else:
+            messages.error(request, "Oops, Something went wrong, it appears we have an empty form!")
+            return render_to_response('publicpages/contact.html',{'nlform':nlsubscriber_form,'news':news,'current_date':now,
+                                                              'theyear': theyear,'form':FeedbackForm(),'cssClass': cssClass},context_instance = RequestContext(request))
+
+
             
-            recipients = ['abdulhakim.haliru@leproghrammeen.com']
         if cc_myself:
-            recipients.append(email)
-            send_mail("Primegate Website Visitor", message, email, recipients)
-            txt = 'Thanks for writing us, we will be in touch'    
-            return render_to_response('publicpages/contact.html',{'form':form, 'current_date':now, 'theyear': theyear,'success' :  txt,'cssClass': cssClass}, context_instance = RequestContext(request))
+            recipients.append(cc_myself)
+        send_mail(subject, message, to, recipients)
+        messages.success(request, 'Thanks for writing us, we will be in touch' )   
+        return render_to_response('publicpages/contact.html',{'nlform':nlsubscriber_form,'news':news,'form':form, 'current_date':now, 'theyear': theyear,'cssClass': cssClass}, context_instance = RequestContext(request))
     else:
         
         return render_to_response('publicpages/contact.html',{'nlform':nlsubscriber_form,'news':news,'current_date':now,
