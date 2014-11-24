@@ -1,7 +1,9 @@
 from django.contrib import admin
-from homepagebanners.models import Homepagebanner
+from image_cropping import ImageCroppingMixin
 
-class HomepagebannerAdmin(admin.ModelAdmin):
+from homepagebanners.models import Homepagebanner
+#ImageCroppingMixin, admin.ModelAdmin
+class HomepagebannerAdmin(ImageCroppingMixin, admin.ModelAdmin):
     list_display=('image','caption','brief_info','url')
 
 admin.site.register(Homepagebanner,HomepagebannerAdmin)

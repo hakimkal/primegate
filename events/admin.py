@@ -1,10 +1,9 @@
-
-from events.models import Event
- 
 from django.contrib import admin
+from image_cropping import ImageCroppingMixin
+from events.models import Event
 
 
-class EventAdmin(admin.ModelAdmin):
+class EventAdmin(ImageCroppingMixin,admin.ModelAdmin):
     save_on_top = True
     list_display= ('caption','event_details','image','created','start_date','end_date', 'modified', 'tags')
     exclude = ('user',)

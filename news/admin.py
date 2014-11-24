@@ -1,13 +1,14 @@
-
+from django.contrib import admin
+from image_cropping import ImageCroppingMixin
 from news.models import News
  
-from django.contrib import admin
 
 
-class NewsAdmin(admin.ModelAdmin):
+
+class NewsAdmin(ImageCroppingMixin,admin.ModelAdmin):
     save_on_top = True
     list_display= ('caption','story','image','created', 'modified', 'tags')
-    exclude = ('user',)
+    exclude = ('user','cropping')
     
     
     def save_model(self, request, obj, form, change):
