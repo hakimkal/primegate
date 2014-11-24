@@ -4,6 +4,6 @@ from gallery.models import Gallery
 
 class GalleryAdmin(ImageCroppingMixin, admin.ModelAdmin):
     list_display=('image','caption')
-    exclude =('cropping','thumb')
+    #exclude =('cropping','thumb')
 
 admin.site.register(Gallery,GalleryAdmin)
