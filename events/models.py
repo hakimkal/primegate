@@ -18,7 +18,7 @@ class Event(models.Model):
     event_details = models.TextField(blank= True)
     tags = models.CharField(max_length=255)
     user = models.ForeignKey(get_user_model())
-    cropping = ImageRatioField('image', '246x246')
+    cropping = ImageRatioField('image', '492x492')
     
     class Meta:
         verbose_name = 'Event'

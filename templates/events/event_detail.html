@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load cropping %}
 {% block content %}
 <!-- Breadcrumb -->
 <div class="container">
@@ -23,7 +24,14 @@
             <!-- Course Image -->
             <div class="col-md-2 col-sm-3">
                 <figure class="event-image">
-                    <div class="image-wrapper"><img src="{{event.image.url}}"></div>
+                    <div class="image-wrapper">
+                        
+                       
+                    {% if event.cropping %}
+                                       <img src="{% cropped_thumbnail event "cropping" scale=0.6 %}"> 
+                                       {% endif %}
+                    
+                    </div>
                 </figure>
             </div><!-- end Course Image -->
             <!--MAIN Content-->
