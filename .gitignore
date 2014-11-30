@@ -9,6 +9,7 @@ Primegate.ko*
 ./settings.py
 .settings.py
 ./settings.pyc
+*.pyc
 primegate/config.py
 eleq
 primegate/config.pyc

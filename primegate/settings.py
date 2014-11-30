@@ -145,6 +145,7 @@ EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
 EMAIL_USE_TLS = True
 #EMAIL_USE_SSL
 INTERNAL_IPS =  ('127.0.0.1',)
+ADMINS =(('Abdulhakim Haliru','hakimkal@gmail.com'))
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',

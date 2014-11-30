@@ -45,7 +45,8 @@ def contact(request):
             message = form.cleaned_data["message"]
             cc_myself = 'info@leproghrammeen.com'
             to = 'info@primegateacademy.com'
-            recipients = ['okerekeaugusta@yahoo.com']
+            recipients = ['okerekeaugusta@yahoo.com','mercy_uro@yahoo.com','dorcasikya@gmail.com']
+            #dorcasikya@gmail.com   mercy_uro@yahoo.com
         else:
             messages.error(request, "Oops, Something went wrong, it appears we have an empty form!")
             return render_to_response('publicpages/contact.html',{'nlform':nlsubscriber_form,'news':news,'current_date':now,
